@@ -1,41 +1,40 @@
-import path from 'path';
-import express from 'express';
-import dotenv from 'dotenv';
-import morgan from 'morgan';
-import connectDB from './config/db.js';
-import userRoutes from './routes/userRoutes.js';
-import patientRoutes from './routes/patientRoutes.js';
-import doctorRoutes from './routes/doctorRoutes.js';
+import path from "path";
+import express from "express";
+import dotenv from "dotenv";
+import morgan from "morgan";
+import connectDB from "./config/db.js";
+import userRoutes from "./routes/userRoutes.js";
+import patientRoutes from "./routes/patientRoutes.js";
+import doctorRoutes from "./routes/doctorRoutes.js";
 
-import appointmentRoutes from './routes/appointmentRoutes.js';
-import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import appointmentRoutes from "./routes/appointmentRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
 const app = express();
 connectDB();
 
-if (process.env.NODE_ENV === 'developement') {
-  app.use(morgan('dev'));
+if (process.env.NODE_ENV === "developement") {
+  app.use(morgan("dev"));
 }
 
 app.use(express.json());
-
-app.use('/api/users', userRoutes);
-app.use('/api/patients', patientRoutes);
-app.use('/api/doctors', doctorRoutes);
-app.use('/api/appointments', appointmentRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/patients", patientRoutes);
+app.use("/api/doctors", doctorRoutes);
+app.use("/api/appointments", appointmentRoutes);
 
 const __dirname = path.resolve();
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/frontend/build')));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
 
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
   );
 } else {
-  app.get('/', (req, res) => {
-    res.send('API is running...');
+  app.get("/", (req, res) => {
+    res.send("API is running...");
   });
 }
 
