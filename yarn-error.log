@@ -1,0 +1,59 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\luckn\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python39\Scripts\;C:\Python39\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-16\bin;C:\Users\luckn\AppData\Local\Microsoft\WindowsApps;C:\Users\luckn\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\luckn\AppData\Roaming\npm;C:\Program Files\heroku\bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.11.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\luckn\OneDrive\Desktop\college\OnlineConsultation\backend\package.json: Unexpected token } in JSON at position 349
+      at JSON.parse (<anonymous>)
+      at C:\Users\luckn\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\luckn\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\luckn\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+      "name": "hospitalmanagement",
+      "version": "1.0.0",
+      "description": "Hospital Management System",
+      "main": "server.js",
+      "type": "module",
+      "scripts": {
+        "start": "node backend/server",
+        "server": "nodemon backend/server",
+        "data:import": "node backend/seeder",
+        "data:destroy": "node backend/seeder -d",
+      },
+      "author": "Nikita",
+      "license": "MIT",
+      "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-async-handler": "^1.1.4",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.11.15",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.2"
+      },
+      "devDependencies": {
+        "concurrently": "^5.3.0",
+        "nodemon": "^2.0.4"
+      }
+    }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
